@@ -1,0 +1,23 @@
+@startuml classes
+set namespaceSeparator none
+class "Component" as composite.Component {
+  {abstract}add(component)
+  is_composite() -> bool
+  {abstract}operation()
+  {abstract}remove(component)
+}
+class "Composite" as composite.Composite {
+  children : list
+  name
+  add(component)
+  is_composite() -> bool
+  operation()
+  remove(component)
+}
+class "Leaf" as composite.Leaf {
+  name
+  operation()
+}
+composite.Composite --|> composite.Component
+composite.Leaf --|> composite.Component
+@enduml
